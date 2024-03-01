@@ -10,6 +10,7 @@ namespace Tic_Tac_Toe
         private int count = 0;
         private Random random = new Random();
         private int rdNum = 0;
+        private bool isDraw = false;
 
         public Form1()
         {
@@ -91,6 +92,11 @@ namespace Tic_Tac_Toe
             else if(count == 9)
             {
                 checkWinner();
+
+                if (isDraw == true)
+                {
+                    MessageBox.Show("Draw!");
+                }
             }
         }
 
@@ -114,74 +120,95 @@ namespace Tic_Tac_Toe
                 if (b1.Text == "X" && b2.Text == "X" && b3.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b1.Text == "O" && b2.Text == "O" && b3.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
                 }
                 else if (b4.Text == "X" && b5.Text == "X" && b6.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b4.Text == "O" && b5.Text == "O" && b6.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
                 }
                 else if (b7.Text == "X" && b8.Text == "X" && b9.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b7.Text == "O" && b8.Text == "O" && b9.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
                 }
 
                 // vertical check
-                if (b1.Text == "X" && b4.Text == "X" && b7.Text == "X")
+                else if (b1.Text == "X" && b4.Text == "X" && b7.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b1.Text == "O" && b4.Text == "O" && b7.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
                 }
                 else if (b2.Text == "X" && b5.Text == "X" && b8.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b2.Text == "O" && b5.Text == "O" && b8.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
                 }
                 else if (b3.Text == "X" && b6.Text == "X" && b9.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b3.Text == "O" && b6.Text == "O" && b9.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
                 }
 
                 // diagonal check
                 else if (b1.Text == "X" && b5.Text == "X" && b9.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b1.Text == "O" && b5.Text == "O" && b9.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
                 }
                 else if (b3.Text == "X" && b5.Text == "X" && b7.Text == "X")
                 {
                     MessageBox.Show("You Win!");
+                    resetGame();
                 }
                 else if (b3.Text == "O" && b5.Text == "O" && b7.Text == "O")
                 {
                     MessageBox.Show("You Lose.");
+                    resetGame();
+                }
+                else 
+                {
+                    isDraw = true;
                 }
             }
         }
-        private void btnRestart_Click(object sender, EventArgs e)
+
+        private void resetGame()
         {
             b1.Enabled = true;
             b2.Enabled = true;
@@ -205,6 +232,11 @@ namespace Tic_Tac_Toe
 
             count = 0;
             num = "123456789";
+            isDraw = false;
+        }
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            resetGame();
         }
 
         private void b1_Click(object sender, EventArgs e)
